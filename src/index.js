@@ -7,7 +7,7 @@ const countryInput = document.querySelector('#search-box');
 const countryInfo = document.querySelector('.country-info');
 const countryList = document.querySelector('.country-list');
 const DEBOUNCE_DELAY = 300;
-const pureList = null;
+const pureList = 0;
 
 countryInput.addEventListener(
   'input',
@@ -15,6 +15,11 @@ countryInput.addEventListener(
 );
 
 function searchACountry() {
+  if (countryInput.value === '') {
+    createAListMarkup(pureList);
+    createMarkup(pureList);
+    return;
+  }
   fetchCountries(countryInput.value.trim())
     .then(data => {
       if (data.length === 1) {
