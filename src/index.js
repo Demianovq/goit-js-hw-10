@@ -15,6 +15,12 @@ countryInput.addEventListener(
 );
 
 function searchACountry() {
+  if (countryInput.value === ' ') {
+    console.dir(countryInput.value);
+    createAListMarkup(pureList);
+    createMarkup(pureList);
+    return;
+  }
   if (countryInput.value === '') {
     createAListMarkup(pureList);
     createMarkup(pureList);
