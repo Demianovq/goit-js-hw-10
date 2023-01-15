@@ -15,18 +15,14 @@ countryInput.addEventListener(
 );
 
 function searchACountry() {
-  if (countryInput.value === ' ') {
-    console.dir(countryInput.value);
+  const updateInputValue = this.value.trim();
+
+  if (updateInputValue === '') {
     createAListMarkup(pureList);
     createMarkup(pureList);
     return;
   }
-  if (countryInput.value === '') {
-    createAListMarkup(pureList);
-    createMarkup(pureList);
-    return;
-  }
-  fetchCountries(countryInput.value.trim())
+  fetchCountries(updateInputValue)
     .then(data => {
       if (data.length === 1) {
         createMarkup(data);
